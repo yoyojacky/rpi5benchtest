@@ -5,7 +5,8 @@ import csv
 x = []
 x1 = [] 
 
-file_path_1 = 'armor-bench20min.csv'
+# file_path_1 = 'armor-bench20min.csv'
+file_path_1 = 'metal-bench20min.csv'
 file_path_2 = 'pibench20min.csv'
 
 
@@ -27,10 +28,11 @@ file2_x = [float(file2_data[i][0]) for i in range(len(file2_data))][::-1]
 file2_y = [float(file2_data[i][1]) for i in range(len(file2_data))]
 
 
-plt.plot(file1_x, file1_y, color='blue', label='Armor Case with Fan')
-plt.plot(file2_x, file2_y, color='red', label='Without Fan and Heatsink')
+plt.plot(file1_x, file1_y, color='blue', label='{}'.format(file_path_1.rstrip('.csv')))
+plt.grid(True)
+plt.plot(file2_x, file2_y, color='red', label='{}'.format(file_path_2.rstrip('.csv')))
 
-plt.title("CPU Temperature Bench Test")
+plt.title("CPU Temperature Bench Test in 20 minutes")
 plt.xlabel('Times(1200 seconds)')
 plt.ylabel('Temperature of CPU')
 
