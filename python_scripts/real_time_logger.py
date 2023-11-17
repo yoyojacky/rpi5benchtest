@@ -10,8 +10,12 @@ x = []
 y = []
 count = 1200
 
+# filename = '/home/pi/metal-fan-bench20min.csv'
+# filename = '/home/pi/rpi5-case-official-heatsink-normal-use.csv'
+filename = '/home/pi/rpi5-case-official-heatsink-bench20min.csv'
+
 def write_temp(temp):
-    with open('/home/pi/armor-bench20min.csv', 'a') as log:
+    with open(filename, 'a') as log:
         # log.write("{0},{1},".format(strftime("%Y-%m-%d %H:%M:%S"),str(temp)))
         log.write("{0},{1}".format(count, str(temp)))
         log.write("\n")
