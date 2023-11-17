@@ -32,3 +32,4 @@ It will take 1200 seconds to record the temperature. after that, it will termina
 python3 plot_temp.py
 ```
 It will draw two graphs in legend mode.
+![allinone](https://github.com/yoyojacky/rpi5benchtest/blob/main/images/Figure_1.png)
