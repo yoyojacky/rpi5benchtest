@@ -12,7 +12,15 @@ count = 1200
 
 # filename = '/home/pi/metal-fan-bench20min.csv'
 # filename = '/home/pi/rpi5-case-official-heatsink-normal-use.csv'
-filename = '/home/pi/rpi5-case-official-heatsink-bench20min.csv'
+# filename = '/home/pi/metal-case-official-heatsink-normal-use.csv'
+# filename = '/home/pi/metal-case-official-heatsink-bench20min.csv'
+# filename = '/home/pi/official-heatsink-bench20min.csv'
+# filename = '/home/pi/official-heatsink-normal-use.csv'
+# filename = '/home/pi/heatsink-case-thermal-normal-use.csv'
+# filename = '/home/pi/armor-case-thermal-bench20min.csv'
+# filename = '/home/pi/heatsink-case-bench20min.csv'
+# filename = '/home/pi/open-armor-case-3mm-bench20min.csv'
+filename = '/home/pi/icetower-btn-case-thermal-overclock20min.csv'
 
 def write_temp(temp):
     with open(filename, 'a') as log:
