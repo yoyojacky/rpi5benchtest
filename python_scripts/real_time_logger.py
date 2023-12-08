@@ -1,5 +1,5 @@
 from gpiozero import CPUTemperature
-from time import sleep, strftime, time
+import time
 import matplotlib.pyplot as plt
 
 
@@ -8,19 +8,9 @@ cpu = CPUTemperature()
 plt.ion()
 x = []
 y = []
-count = 1200
+count = 0
 
-# filename = '/home/pi/metal-fan-bench20min.csv'
-# filename = '/home/pi/rpi5-case-official-heatsink-normal-use.csv'
-# filename = '/home/pi/metal-case-official-heatsink-normal-use.csv'
-# filename = '/home/pi/metal-case-official-heatsink-bench20min.csv'
-# filename = '/home/pi/official-heatsink-bench20min.csv'
-# filename = '/home/pi/official-heatsink-normal-use.csv'
-# filename = '/home/pi/heatsink-case-thermal-normal-use.csv'
-# filename = '/home/pi/armor-case-thermal-bench20min.csv'
-# filename = '/home/pi/heatsink-case-bench20min.csv'
-# filename = '/home/pi/open-armor-case-3mm-bench20min.csv'
-filename = '/home/pi/icetower-btn-case-thermal-overclock20min.csv'
+filename = '/home/pi/heatsink-case-thermal-bench20min.csv'
 
 def write_temp(temp):
     with open(filename, 'a') as log:
@@ -28,13 +18,19 @@ def write_temp(temp):
         log.write("{0},{1}".format(count, str(temp)))
         log.write("\n")
 
-
+        
 def graph(temp):
     y.append(temp)
-    x.append(time())
+    x.append(time.time())
     plt.clf()
     plt.scatter(x,y)
-    plt.plot(x,y)
+    plt.grid(True)
+    plt.plot(x,y, marker='o', color='blue')
+    for i, temp in enumerate(y):
+        plt.annotate(f'{temp}',(x[i], y[i]), textcoords="offset points", xytext=(0, 20), ha="center")
+    plt.title('sysbench pressed temperature of CPU test')
+    plt.xlabel('Time')
+    plt.ylabel('Temperature')
     plt.draw()
 
 
@@ -42,9 +38,10 @@ while True:
     temp = cpu.temperature
     write_temp(temp)
     graph(temp)
-    plt.pause(1)
-    count -= 1
+    plt.pause(60)
+    count += 1
     print(count)
-    if count == 0:
+    
+    if count == 21:
         break
 
