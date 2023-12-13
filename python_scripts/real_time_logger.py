@@ -10,7 +10,7 @@ x = []
 y = []
 count = 0
 
-filename = '/home/pi/heatsink-case-thermal-bench20min.csv'
+filename = '/home/pi/kz-0027-bench30min.csv'
 
 def write_temp(temp):
     with open(filename, 'a') as log:
@@ -42,6 +42,6 @@ while True:
     count += 1
     print(count)
     
-    if count == 21:
+    if count == 31:
         break
 

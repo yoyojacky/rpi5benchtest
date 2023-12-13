@@ -2,7 +2,9 @@ import matplotlib.pyplot as plt
 import csv 
 
 
-file_path_2 = '/home/pi/heatsink-case-thermal-bench20min.csv'
+# file_path_2 = '/home/pi/C-0049-bench30min.csv'
+# file_path_2 = '/home/pi/kz-0028-bench30min.csv'
+file_path_2 = '/home/pi/kz-0028-bench30min.csv'
 
 def read_csv(file_path):
    with open(file_path, "r") as f:
@@ -21,7 +23,8 @@ file2_data = read_csv(file_path_2)
 #file1_x = [float(file1_data[i][0]) for i in range(len(file1_data))][::-1]
 #file1_y = [float(file1_data[i][1]) for i in range(len(file1_data))]
 
-file2_x = [float(file2_data[i][0]) for i in range(len(file2_data))][::-1]
+# file2_x = [float(file2_data[i][0]) for i in range(len(file2_data))][::-1]
+file2_x = [float(file2_data[i][0]) for i in range(len(file2_data))]
 file2_y = [float(file2_data[i][1]) for i in range(len(file2_data))]
 
 #file3_x = [float(file3_data[i][0]) for i in range(len(file3_data))][::-1]
@@ -45,9 +48,11 @@ for i, text in enumerate(file2_y):
 #plt.plot(file5_x, file5_y, color='cyan', label='{}'.format(file_path_5.rstrip('.csv')))
 
 plt.title("CPU Temperature Bench Test in 20 minutes")
-new_yticks = [0,20,30,40,50,60]
+new_yticks = [30,40,50,60,70]
 plt.yticks(new_yticks)
-plt.xlabel('Times(1200 seconds)')
+new_xticks = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
+plt.xticks(new_xticks)
+plt.xlabel('Times(minutes)')
 plt.ylabel('Temperature of CPU')
 
 plt.legend()
