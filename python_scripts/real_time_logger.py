@@ -10,7 +10,7 @@ x = []
 y = []
 count = 0
 
-filename = '/home/pi/kz-0027-bench30min.csv'
+filename = '/home/pi/lowprofile-icetower-bench30min.csv'
 
 def write_temp(temp):
     with open(filename, 'a') as log:
@@ -27,7 +27,7 @@ def graph(temp):
     plt.grid(True)
     plt.plot(x,y, marker='o', color='blue')
     for i, temp in enumerate(y):
-        plt.annotate(f'{temp}',(x[i], y[i]), textcoords="offset points", xytext=(0, 20), ha="center")
+        plt.annotate(f'{int(round(temp))}',(x[i], y[i]), textcoords="offset points", xytext=(0, 20), ha="center")
     plt.title('sysbench pressed temperature of CPU test')
     plt.xlabel('Time')
     plt.ylabel('Temperature')
